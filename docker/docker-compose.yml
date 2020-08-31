@@ -1,0 +1,31 @@
+version: "3"
+services:
+  gvm:
+    image: mkuchera/gvm11
+    ports:
+      - "8080:9392"
+    environment:
+      - USERNAME=${GVM_USER}
+      - PASSWORD=${GVM_PASS}
+      - HTTPS=${GVM_HTTPS}
+      - SSHD=${GVM_SSHD}
+      - TZ=${GVM_TZ}
+      - SMTP_USER=${MAIL_USER} 
+      - SMTP_PASS=${MAIL_PASS}
+      - SMTP_DOMAIN=${MAIL_DOMAIN}
+      - SMTP_PORT=${MAIL_PORT}
+      - REPORT_TAG=${EMAIL_DELTA_TAG}
+      - SENT_TAG=${EMAIL_SENT_TAG}
+      - DELTA_MAIL_INT=${EMAIL_INT}
+    volumes:
+    - gvm-data:/data
+    - ./scripts:/scripts
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    command: >
+            /bin/sh -c "python3 -m smtpd -c DebuggingServer -n localhost:1025
+            && /start.sh" 
+
+volumes:
+  gvm-data:
