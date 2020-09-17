@@ -2,6 +2,7 @@ version: "3"
 services:
   gvm:
     image: mkuchera/gvm11
+    name: gvm11_1
     ports:
       - "8080:9392"
     environment:
@@ -24,8 +25,7 @@ services:
     stdin_open: true
     tty: true
     command: >
-            /bin/sh -c "python3 -m smtpd -c DebuggingServer -n localhost:1025
-            && /start.sh" 
+            /bin/sh -c "./start.sh" 
 
 volumes:
   gvm-data:
