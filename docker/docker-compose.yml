@@ -2,7 +2,6 @@ version: "3"
 services:
   gvm:
     image: mkuchera/gvm11
-    name: gvm11_1
     ports:
       - "8080:9392"
     environment:
@@ -21,11 +20,13 @@ services:
     volumes:
     - gvm-data:/data
     - ./scripts:/scripts
+    - ./host_info:/host_info
     restart: unless-stopped
     stdin_open: true
     tty: true
     command: >
-            /bin/sh -c "./start.sh" 
-
+            /bin/sh -c "/scripts/user_add.sh &&
+            ./start.sh"
+ 
 volumes:
   gvm-data:

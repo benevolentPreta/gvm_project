@@ -1,2 +1,8 @@
 # email/gmp credentials will be stored in a local .env file
-.env
+*.env
+
+# allow .env.sample
+!.env.sample
+
+# even in sub dir
+!*/

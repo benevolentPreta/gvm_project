@@ -8,9 +8,9 @@ from socket import gaierror
 
 # now you can play with your code. Let’s define the SMTP server separately here:
 port = 2525 
-smtp_server = os.environ['MAIL_DOMAIN'] # set in .env file
-login = os.environ['MAIL_USER'] # set in .env file
-password = os.environ['MAIL_PASS'] # set in .env file
+smtp_server = os.environ['SMTP_DOMAIN'] # set in .env file
+login = os.environ['SMTP_USER'] # set in .env file
+password = os.environ['SMTP_PASS'] # set in .env file
 
 # specify the sender’s and receiver’s email addresses
 sender = "from@example.com"
