@@ -5,7 +5,7 @@ Please read through script as workarounds are implemented that may not be necess
 Also, you shouldn't just install scripts off the internet without at least looking at them;-)
 
 ```
-wget https://raw.githubusercontent.com/benevolentpreta/gvm_project/native_install/ubuntu_20.04.sh
+wget https://raw.githubusercontent.com/benevolentPreta/gvm_project/master/native_install/ubuntu_20.04.py
 vi ubuntu_20.04.sh 
 chmod +x ubuntu_20.04.sh
 sudo ./ubuntu_20.04.sh 
